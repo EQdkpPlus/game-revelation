@@ -24,31 +24,31 @@ if ( !defined('EQDKP_INC') ){
 }
 $german_array = array(
 	'classes' => array(
-		0	=> 'Unbekannt',
-		1	=> 'Klingenmagier',
-		2	=> 'Beschwörer',
+		0	=> 'Unknown',
+		1	=> 'Swordmage',
+		2	=> 'Spiritshaper',
 		3	=> 'Vanguard',
-		4	=> 'Waffenmeister',
-		5	=> 'Scharfschütze',
+		4	=> 'Blademaster',
+		5	=> 'Gunslinger',
 		6	=> 'Occultist',
 	),
 	'races' => array(
-		1	=> 'Menschen',
+		1	=> 'Human',
 	),
 	'roles' => array(
-		1	=> 'Heiler',
+		1	=> 'Healer',
 		2	=> 'Tank',
 		3	=> 'Damage Dealer',
 	),
 	'lang' => array(
 		'revelation'					=> 'Revelation',
-		'uc_gender'						=> 'Geschlecht',
-		'uc_male'						=> 'Männlich',
-		'uc_female'						=> 'Weiblich',
-		'uc_race'						=> 'Rasse',
-		'uc_class'						=> 'Klasse',
+		'uc_gender'						=> 'Gender',
+		'uc_male'						=> 'Male',
+		'uc_female'						=> 'Female',
+		'uc_race'						=> 'Race',
+		'uc_class'						=> 'Class',
 		'uc_level'						=> 'Level',
-		'uc_guild'						=> 'Gilde',
+		'uc_guild'						=> 'Guild',
 	),
 );
 ?>

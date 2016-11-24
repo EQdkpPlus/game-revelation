@@ -24,46 +24,46 @@ if ( !defined('EQDKP_INC') ){
 }
 
 if(!class_exists('revelation')) {
-	class revelation extends game_generic {#
+	class revelation extends game_generic {
 		protected static $apiLevel	= 20;
-		public $version				= '0.1.0';
-		public $author					= "WalleniuM";
-		protected $this_game			= 'revelation';
-		protected $types				= array('factions','classes','roles');
+		public $version				= '0.2.0';
+		public $author				= "WalleniuM";
+		protected $this_game		= 'revelation';
+		protected $types			= array('factions','classes','roles');
 		protected $classes			= array();
 
-		protected $roles				= array();
+		protected $roles			= array();
 		protected $factions			= array();
 		protected $filters			= array();
-		protected $realmlist			= array();
+		protected $realmlist		= array();
 		protected $professions		= array();
-		public $langs					= array('german');	
+		public $langs				= array('german');
 
 		protected $class_dependencies = array(
 			array(
-				'name'		=> 'race',
-				'type'		=> 'races',
+				'name'			=> 'race',
+				'type'			=> 'races',
 				'admin' 		=> true,
-				'decorate'	=> false,
+				'decorate'		=> false,
 				'parent'		=> false,
 			),
 			array(
-				'name'		=> 'class',
-				'type'		=> 'classes',
-				'admin'		=> false,
-				'decorate'	=> true,
-				'primary'	=> true,
-				'colorize'	=> true,
+				'name'			=> 'class',
+				'type'			=> 'classes',
+				'admin'			=> false,
+				'decorate'		=> true,
+				'primary'		=> true,
+				'colorize'		=> true,
 				'roster'		=> true,
-				'recruitment' => true,
-				'parent'	=> array(
+				'recruitment'	=> true,
+				'parent'		=> array(
 					'race' => array(
 						0 	=> 'all',							// Unknown
 						1 	=> 'all',							// Human
 					),
 				),
 			),
-			
+
 		);
 
 		public $default_roles = array(
@@ -95,7 +95,7 @@ if(!class_exists('revelation')) {
 			$info['config'] = array();
 			return $info;
 		}
-		
+
 		public function load_filters($langs){
 			return array();
 		}

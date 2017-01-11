@@ -58,7 +58,6 @@ if(!class_exists('revelation')) {
 				'recruitment'	=> true,
 				'parent'		=> array(
 					'race' => array(
-						0 	=> 'all',							// Unknown
 						1 	=> 'all',							// Human
 					),
 				),
@@ -73,12 +72,12 @@ if(!class_exists('revelation')) {
 		);
 
 		protected $class_colors		= array(
-			1	=> '#58D3F7',
-			2	=> 'green',
-			3	=> 'yellow',
-			4	=> 'orange',
-			5	=> 'red',
-			6	=> 'gray',
+                        1       => '#58D3F7',
+                        2       => '#008000',
+                        3       => '#FFFF00',
+                        4       => '#FFA500',
+                        5       => '#FF0000',
+                        6       => '#808080',
 		);
 
 		protected $glang			= array();

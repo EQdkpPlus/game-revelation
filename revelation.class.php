@@ -58,7 +58,6 @@ if(!class_exists('revelation')) {
 				'recruitment'	=> true,
 				'parent'		=> array(
 					'race' => array(
-						0 	=> 'all',							// Unknown
 						1 	=> 'all',							// Human
 					),
 				),

@@ -26,10 +26,10 @@ if ( !defined('EQDKP_INC') ){
 if(!class_exists('revelation')) {
 	class revelation extends game_generic {
 		protected static $apiLevel	= 20;
-		public $version				= '0.2.0';
+		public $version				= '0.2.1';
 		public $author				= "WalleniuM";
 		protected $this_game		= 'revelation';
-		protected $types			= array('factions','classes','roles');
+		protected $types			= array('races','classes','roles');
 		protected $classes			= array();
 
 		protected $roles			= array();
@@ -37,13 +37,13 @@ if(!class_exists('revelation')) {
 		protected $filters			= array();
 		protected $realmlist		= array();
 		protected $professions		= array();
-		public $langs				= array('german');
+		public $langs				= array('german', 'english');
 
 		protected $class_dependencies = array(
 			array(
 				'name'			=> 'race',
 				'type'			=> 'races',
-				'admin' 		=> true,
+				'admin' 		=> false,
 				'decorate'		=> false,
 				'parent'		=> false,
 			),
@@ -134,6 +134,7 @@ if(!class_exists('revelation')) {
 
 		public function admin_settings() {
 			// array with admin fields
+			return array();
 		}
 
 	}#class

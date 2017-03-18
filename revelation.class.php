@@ -27,7 +27,7 @@ if(!class_exists('revelation')) {
 	class revelation extends game_generic {
 		protected static $apiLevel	= 20;
 		public $version				= '0.2.1';
-		public $author				= "WalleniuM";
+		public $author				= "WalleniuM, Inkraja";
 		protected $this_game		= 'revelation';
 		protected $types			= array('races','classes','roles');
 		protected $classes			= array();
@@ -72,12 +72,12 @@ if(!class_exists('revelation')) {
 		);
 
 		protected $class_colors		= array(
-                        1       => '#58D3F7',
-                        2       => '#008000',
-                        3       => '#FFFF00',
-                        4       => '#FFA500',
-                        5       => '#FF0000',
-                        6       => '#808080',
+                        1       => '#336699', //Swordmage
+                        2       => '#336633', //Spritishaper
+                        3       => '#999900', //Vanguard
+                        4       => '#993300', //Blademaster
+                        5       => '#993333', //Gunslinger
+                        6       => '#663399', //Occultist
 		);
 
 		protected $glang			= array();
@@ -89,16 +89,10 @@ if(!class_exists('revelation')) {
 			parent::__construct();
 		}
 
-		public function install($install=false){
-			//config-values
-			$info['config'] = array();
-			return $info;
-		}
-
 		public function load_filters($langs){
 			return array();
 		}
-
+		
 		public function profilefields(){
 			$fields = array(
 				'guild'	=> array(
@@ -127,10 +121,66 @@ if(!class_exists('revelation')) {
 					'undeletable'	=> true,
 					'sort'			=> 4
 				),
+			
 			);
 			return $fields;
 		}
+		
+		public function install($install=false){
+			$this->game->resetEvents();
+			$arrEventIDs = array();
+			$arrEventIDs[1] = $this->game->addEvent($this->glang('darkfall'), 0, "01.png");
+			$arrEventIDs[2] = $this->game->addEvent($this->glang('deserted_shrine'), 0, "02.png");
+			$arrEventIDs[3] = $this->game->addEvent($this->glang('misty_hallow'), 0, "03.png");
+			$arrEventIDs[4] = $this->game->addEvent($this->glang('grand_bulwark'), 0, "04.png");
+			$arrEventIDs[5] = $this->game->addEvent($this->glang('scour_dungeon'), 0, "05.png");
+			$arrEventIDs[6] = $this->game->addEvent($this->glang('mech_citadel'), 0, "06.png");
+			$arrEventIDs[7] = $this->game->addEvent($this->glang('bounty_hunter'), 0, "07.png");
+			$arrEventIDs[8] = $this->game->addEvent($this->glang('clanwar'), 0, "08.png");
+			
+			$arrItemPools = array();
+			$arrItemPools[0] = $this->game->addItempool('Raids', 'Raids Itempool');
+			$arrItemPools[1] = $this->game->addItempool('ClanWar', 'ClanWar Itempool');
 
+			$this->game->addMultiDKPPool('Raids', 'Raids', [1,2,3,4,5,6,7], [$arrItemPools[0]]);
+			$this->game->addMultiDKPPool('CW', 'ClanwWar', [8], [$arrItemPools[1]]);
+
+
+			//Links
+			$this->game->addLink('RO Forum', 'https://ro.my.com/forum/board-list/');
+
+			$this->game->resetRanks();
+			//Ranks
+			$this->game->addRank(0, "Guild Leader");
+			$this->game->addRank(1, "Vice Guild");
+			$this->game->addRank(2, "Chairperson");
+			$this->game->addRank(3, "Grayscale Ennvoy");
+			$this->game->addRank(4, "Scarletwing Envoy");
+			$this->game->addRank(5, "Frostfang Envoy");
+			$this->game->addRank(6, "Midnight Envoy");
+			$this->game->addRank(7, "Elite");
+			$this->game->addRank(8, "Member", true);
+			$this->game->addRank(9, "Toon" );
+			$this->game->addRank(10, "Alliance");
+			
+			//Raidgroups
+			$this->game->addRaidgroup("Group1","#f44336", "", 0, 0, 0);
+			$this->game->addRaidgroup("Group2","#e91e63", "", 0, 1, 0);
+			$this->game->addRaidgroup("Group3","#9c27b0", "", 0, 2, 0);
+			$this->game->addRaidgroup("Group4","#673ab7", "", 0, 3, 0);
+			$this->game->addRaidgroup("Group5","#3f51b5", "", 0, 4, 0);
+			$this->game->addRaidgroup("Group6","#2196f3", "", 0, 5, 0);
+			$this->game->addRaidgroup("Group7","#03a9f4", "", 0, 6, 0);
+			$this->game->addRaidgroup("Group8","#00bcd4", "", 0, 7, 0);
+			$this->game->addRaidgroup("Group9","#009688", "", 0, 8, 0);
+			$this->game->addRaidgroup("Group10","#4caf50", "", 0, 9, 0);
+		}
+		public function uninstall(){
+
+			$this->game->removeLink("RO Forum");  
+
+		}
+		
 		public function admin_settings() {
 			// array with admin fields
 			return array();

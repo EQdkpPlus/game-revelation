@@ -49,6 +49,18 @@ $english_array = array(
 		'uc_class'						=> 'Class',
 		'uc_level'						=> 'Level',
 		'uc_guild'						=> 'Guild',
+		
+		//Event
+		'darkfall'						=> 'Darkfall',
+		'deserted_shrine'				=> 'Deserted Shrine',
+		'misty_hallow'					=> 'Misty Hallow',
+		'grand_bulwark'					=> 'Grand Bulwark',
+		'scour_dungeon'					=> 'Scour Dungeon',
+		'mech_citadel'					=> 'Mech Citadel',
+		'bounty_hunter'					=> 'Bounty Hunter',
+		'clanwar'						=> 'ClanWar',
+		
+	
 	),
 );
 ?>
